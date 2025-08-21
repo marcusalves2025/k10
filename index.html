@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kárita10 - Portal de Jogos</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/games.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1><i class="fas fa-gamepad"></i> Kárita10</h1>
+                <p>Portal de Jogos</p>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Início</a></li>
+                    <li><a href="#games" class="nav-link">Jogos</a></li>
+                    <li><a href="#categories" class="nav-link">Categorias</a></li>
+                    <li><a href="#leaderboard" class="nav-link">Ranking</a></li>
+                    <li><a href="#profile" class="nav-link">Perfil</a></li>
+                </ul>
+            </nav>
+            <div class="user-controls">
+                <button class="btn-theme" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-sound" id="soundToggle">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Bem-vindo ao Kárita10</h2>
+                <p>Descubra 100 jogos incríveis em um só lugar!</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">100</span>
+                        <span class="stat-label">Jogos</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Categorias</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Diversão</span>
+                    </div>
+                </div>
+                <button class="btn-primary" onclick="scrollToSection('games')">
+                    Começar a Jogar
+                </button>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-games">
+                    <div class="game-icon">🎮</div>
+                    <div class="game-icon">🎯</div>
+                    <div class="game-icon">🧩</div>
+                    <div class="game-icon">🏆</div>
+                    <div class="game-icon">⚡</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories Section -->
+        <section id="categories" class="categories">
+            <div class="container">
+                <h2>Categorias de Jogos</h2>
+                <div class="categories-grid">
+                    <div class="category-card" data-category="puzzle">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <h3>Puzzle</h3>
+                        <p>Jogos de lógica e quebra-cabeças</p>
+                    </div>
+                    <div class="category-card" data-category="action">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Ação</h3>
+                        <p>Jogos de velocidade e reflexos</p>
+                    </div>
+                    <div class="category-card" data-category="strategy">
+                        <i class="fas fa-chess"></i>
+                        <h3>Estratégia</h3>
+                        <p>Jogos de planejamento e tática</p>
+                    </div>
+                    <div class="category-card" data-category="arcade">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>Arcade</h3>
+                        <p>Jogos clássicos e viciantes</p>
+                    </div>
+                    <div class="category-card" data-category="memory">
+                        <i class="fas fa-brain"></i>
+                        <h3>Memória</h3>
+                        <p>Teste sua capacidade mental</p>
+                    </div>
+                    <div class="category-card" data-category="math">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Matemática</h3>
+                        <p>Jogos educativos e números</p>
+                    </div>
+                    <div class="category-card" data-category="word">
+                        <i class="fas fa-font"></i>
+                        <h3>Palavras</h3>
+                        <p>Jogos de vocabulário e letras</p>
+                    </div>
+                    <div class="category-card" data-category="music">
+                        <i class="fas fa-music"></i>
+                        <h3>Música</h3>
+                        <p>Jogos rítmicos e sonoros</p>
+                    </div>
+                    <div class="category-card" data-category="sports">
+                        <i class="fas fa-futbol"></i>
+                        <h3>Esportes</h3>
+                        <p>Jogos esportivos e atléticos</p>
+                    </div>
+                    <div class="category-card" data-category="adventure">
+                        <i class="fas fa-map"></i>
+                        <h3>Aventura</h3>
+                        <p>Jogos de exploração e descoberta</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games Section -->
+        <section id="games" class="games">
+            <div class="container">
+                <div class="games-header">
+                    <h2>Nossos Jogos</h2>
+                    <div class="games-controls">
+                        <div class="search-box">
+                            <input type="text" id="gameSearch" placeholder="Buscar jogos...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <select id="categoryFilter">
+                            <option value="">Todas as categorias</option>
+                            <option value="puzzle">Puzzle</option>
+                            <option value="action">Ação</option>
+                            <option value="strategy">Estratégia</option>
+                            <option value="arcade">Arcade</option>
+                            <option value="memory">Memória</option>
+                            <option value="math">Matemática</option>
+                            <option value="word">Palavras</option>
+                            <option value="music">Música</option>
+                            <option value="sports">Esportes</option>
+                            <option value="adventure">Aventura</option>
+                        </select>
+                        <select id="difficultyFilter">
+                            <option value="">Todas as dificuldades</option>
+                            <option value="easy">Fácil</option>
+                            <option value="medium">Médio</option>
+                            <option value="hard">Difícil</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="games-grid" id="gamesGrid">
+                    <!-- Games will be dynamically loaded here -->
+                </div>
+                <div class="games-pagination">
+                    <button class="btn-pagination" id="prevPage">Anterior</button>
+                    <span id="pageInfo">Página 1 de 10</span>
+                    <button class="btn-pagination" id="nextPage">Próxima</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard Section -->
+        <section id="leaderboard" class="leaderboard">
+            <div class="container">
+                <h2>Ranking dos Jogadores</h2>
+                <div class="leaderboard-tabs">
+                    <button class="tab-btn active" data-tab="global">Ranking Global</button>
+                    <button class="tab-btn" data-tab="weekly">Semanal</button>
+                    <button class="tab-btn" data-tab="monthly">Mensal</button>
+                </div>
+                <div class="leaderboard-content">
+                    <div class="leaderboard-table">
+                        <div class="table-header">
+                            <span>Posição</span>
+                            <span>Jogador</span>
+                            <span>Pontos</span>
+                            <span>Jogos</span>
+                        </div>
+                        <div class="table-body" id="leaderboardBody">
+                            <!-- Leaderboard data will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Section -->
+        <section id="profile" class="profile">
+            <div class="container">
+                <h2>Meu Perfil</h2>
+                <div class="profile-content">
+                    <div class="profile-info">
+                        <div class="profile-avatar">
+                            <img src="https://via.placeholder.com/150" alt="Avatar" id="userAvatar">
+                            <button class="btn-edit-avatar">
+                                <i class="fas fa-camera"></i>
+                            </button>
+                        </div>
+                        <div class="profile-details">
+                            <h3 id="userName">Jogador</h3>
+                            <p id="userLevel">Nível 1</p>
+                            <div class="profile-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value" id="totalPoints">0</span>
+                                    <span class="stat-label">Pontos Totais</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value" id="gamesPlayed">0</span>
+                                    <span class="stat-label">Jogos Jogados</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value" id="gamesWon">0</span>
+                                    <span class="stat-label">Vitórias</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-achievements">
+                        <h3>Conquistas</h3>
+                        <div class="achievements-grid" id="achievementsGrid">
+                            <!-- Achievements will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Game Modal -->
+    <div class="game-modal" id="gameModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalGameTitle">Nome do Jogo</h3>
+                <button class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="game-container" id="gameContainer">
+                    <!-- Game will be loaded here -->
+                </div>
+                <div class="game-controls">
+                    <button class="btn-game" id="restartGame">Reiniciar</button>
+                    <button class="btn-game" id="pauseGame">Pausar</button>
+                    <button class="btn-game" id="fullscreenGame">Tela Cheia</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Kárita10</h4>
+                    <p>O melhor portal de jogos online com 100 jogos variados para todas as idades.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#games">Jogos</a></li>
+                        <li><a href="#categories">Categorias</a></li>
+                        <li><a href="#leaderboard">Ranking</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kárita10. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/games-data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/games.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>
